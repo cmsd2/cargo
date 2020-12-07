@@ -190,6 +190,7 @@ impl Registry {
         self.handle.url(&url)?;
         self.handle.in_filesize(size as u64)?;
         let mut headers = List::new();
+        headers.append("Content-Type: application/octet-stream")?;
         headers.append("Accept: application/json")?;
         headers.append(&format!("Authorization: {}", token))?;
         self.handle.http_headers(headers)?;
